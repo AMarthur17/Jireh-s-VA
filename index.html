@@ -115,12 +115,10 @@
       <h1 class="hero__title">
         <span class="line"><span>Cada joya guarda</span></span>
         <span class="line"><span>una <em>historia</em>.</span></span>
-        <span class="line"><span>Hagamos la tuya.</span></span>
       </h1>
 
       <p class="hero__lead reveal">
-        Creamos piezas únicas, elaboradas con dedicación, calidad y atención a cada
-        detalle — para que luzcas una joya tan especial como tú.
+        Piezas únicas, hechas a mano, tan especiales como tú.
       </p>
 
       <div class="hero__actions reveal">
@@ -140,7 +138,6 @@
             <path class="d" d="M62 20 L80 38"/>
           </svg>
         </div>
-        <p class="engrave__note">Lo grabamos a mano, letra por letra. Por fuera o escondido por dentro: tú eliges.</p>
       </div>
     </div>
   </div>
@@ -195,8 +192,8 @@
   </div>
 </section>
 
-<!-- ══════════ COLECCIONES ══════════ -->
-<section class="section colecciones" id="colecciones">
+<!-- ══════════ PIEZAS · vitrina con filtro y búsqueda ══════════ -->
+<section class="section piezas" id="colecciones">
   <div class="shell">
     <header class="sec-head">
       <p class="tag reveal">Lo que hacemos</p>
@@ -207,65 +204,113 @@
       </h2>
     </header>
 
-    <div class="cards">
-      <article class="card" data-tilt>
-        <div class="card__art">
-          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
-            <circle class="d" cx="100" cy="124" r="46"/>
-            <circle class="d" cx="100" cy="124" r="38"/>
-            <path class="d" d="M100 44 L124 74 L100 98 L76 74 Z"/>
-            <path class="d" d="M76 74 H124 M100 44 V98 M76 74 L100 98 L124 74"/>
-          </svg>
-        </div>
-        <h3>Anillos de compromiso</h3>
-        <p>El &ldquo;sí&rdquo; que se queda para siempre, en una pieza pensada solo para ustedes.</p>
-        <span class="card__go">Ver más<i>&rarr;</i></span>
-      </article>
+    <div class="filtro reveal">
+      <div class="filtro__chips" role="group" aria-label="Filtrar por tipo de pieza">
+        <button class="chip is-on" data-filtro="todas" aria-pressed="true">Todas</button>
+        <button class="chip" data-filtro="anillos" aria-pressed="false">Anillos</button>
+        <button class="chip" data-filtro="aretes" aria-pressed="false">Aretes</button>
+        <button class="chip" data-filtro="dijes" aria-pressed="false">Dijes</button>
+        <button class="chip" data-filtro="pulseras" aria-pressed="false">Pulseras</button>
+      </div>
 
-      <article class="card" data-tilt>
-        <div class="card__art">
-          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
-            <path class="d" d="M38 38 C58 108 142 108 162 38"/>
-            <path class="d" d="M100 106 V124"/>
-            <path class="d" d="M100 124 C122 124 136 141 136 157 C136 173 120 183 100 183 C80 183 64 173 64 157 C64 141 78 124 100 124 Z"/>
-            <path class="d" d="M84 155 H116 M100 139 V171"/>
-          </svg>
-        </div>
-        <h3>Dijes con nombre</h3>
-        <p>Tu palabra favorita, colgando del cuello. Caligrafía trazada a mano.</p>
-        <span class="card__go">Ver más<i>&rarr;</i></span>
-      </article>
-
-      <article class="card" data-tilt>
-        <div class="card__art">
-          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
-            <path class="d" d="M62 42 C40 42 34 64 48 76 C60 86 74 78 74 64 C74 52 68 42 62 42 Z"/>
-            <path class="d" d="M62 86 V118"/>
-            <path class="d" d="M62 118 L86 150 L62 182 L38 150 Z"/>
-            <path class="d" d="M138 42 C116 42 110 64 124 76 C136 86 150 78 150 64 C150 52 144 42 138 42 Z"/>
-            <path class="d" d="M138 86 V118"/>
-            <path class="d" d="M138 118 L162 150 L138 182 L114 150 Z"/>
-          </svg>
-        </div>
-        <h3>Aretes de autor</h3>
-        <p>Piezas pequeñas, presencia enorme. Diseños que no vas a ver en nadie más.</p>
-        <span class="card__go">Ver más<i>&rarr;</i></span>
-      </article>
-
-      <article class="card" data-tilt>
-        <div class="card__art">
-          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
-            <ellipse class="d" cx="100" cy="112" rx="66" ry="52"/>
-            <ellipse class="d" cx="100" cy="112" rx="57" ry="43"/>
-            <path class="d" d="M100 58 L113 74 L100 90 L87 74 Z"/>
-            <path class="d" d="M60 146 L72 158 M128 158 L140 146"/>
-          </svg>
-        </div>
-        <h3>Pulseras grabadas</h3>
-        <p>Una fecha por dentro, un secreto por fuera. Lo importante no siempre se ve.</p>
-        <span class="card__go">Ver más<i>&rarr;</i></span>
-      </article>
+      <div class="filtro__busca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+        <input type="search" id="busca" placeholder="Buscar una pieza…" autocomplete="off"
+               aria-label="Buscar entre las piezas">
+      </div>
     </div>
+
+    <div class="piezas__grid" id="piezasGrid">
+        <article class="pieza" data-tilt data-tipo="anillos" data-busca="solitario aurora oro blanco y rosa con diamante central. el clásico, bien hecho. anillos">
+          <div class="pieza__foto">
+            <img src="assets/piezas/anillo-solitario.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Anillo solitario de oro blanco y rosa con diamante central sobre fondo oscuro">
+          </div>
+          <div class="pieza__pie">
+            <h3>Solitario Aurora</h3>
+            <p>Oro blanco y rosa con diamante central. El clásico, bien hecho.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="anillos" data-busca="trío herencia tres aros que se llevan juntos o por separado. anillos">
+          <div class="pieza__foto">
+            <img src="assets/piezas/anillos-trio.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Tres anillos de oro apilados con pavé de diamantes">
+          </div>
+          <div class="pieza__pie">
+            <h3>Trío Herencia</h3>
+            <p>Tres aros que se llevan juntos o por separado.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="aretes" data-busca="argollas sol oro trenzado a mano. ligeras, para todos los días. aretes">
+          <div class="pieza__foto">
+            <img src="assets/piezas/aretes-argolla.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Par de argollas de oro trenzado apoyadas sobre una piedra blanca">
+          </div>
+          <div class="pieza__pie">
+            <h3>Argollas Sol</h3>
+            <p>Oro trenzado a mano. Ligeras, para todos los días.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="aretes" data-busca="gota índigo piedra azul engastada una a una. aretes">
+          <div class="pieza__foto">
+            <img src="assets/piezas/aretes-piedra.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Aretes de plata con piedra azul en forma de gota">
+          </div>
+          <div class="pieza__pie">
+            <h3>Gota Índigo</h3>
+            <p>Piedra azul engastada una a una.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="dijes" data-busca="dijes dúo dos piezas para una historia compartida. dijes">
+          <div class="pieza__foto">
+            <img src="assets/piezas/dijes-pareja.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Dos collares de oro con colgantes, uno con piedra azul">
+          </div>
+          <div class="pieza__pie">
+            <h3>Dijes Dúo</h3>
+            <p>Dos piezas para una historia compartida.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="dijes" data-busca="colgante lumen liso por fuera, grabado por dentro. dijes">
+          <div class="pieza__foto">
+            <img src="assets/piezas/dije-colgante.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Collar de oro con colgante alargado sobre fondo verde oscuro">
+          </div>
+          <div class="pieza__pie">
+            <h3>Colgante Lumen</h3>
+            <p>Liso por fuera, grabado por dentro.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="pulseras" data-busca="cadena nudo eslabones pulidos uno por uno. pulseras">
+          <div class="pieza__foto">
+            <img src="assets/piezas/pulsera-cadena.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Pulsera de cadena de oro sobre una revista abierta">
+          </div>
+          <div class="pieza__pie">
+            <h3>Cadena Nudo</h3>
+            <p>Eslabones pulidos uno por uno.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+        <article class="pieza" data-tilt data-tipo="pulseras" data-busca="guarda azul un amuleto discreto, siempre en la muñeca. pulseras">
+          <div class="pieza__foto">
+            <img src="assets/piezas/pulsera-ojo.jpg" width="760" height="950" loading="lazy" decoding="async" alt="Muñeca con una pulsera fina de oro y un amuleto azul">
+          </div>
+          <div class="pieza__pie">
+            <h3>Guarda Azul</h3>
+            <p>Un amuleto discreto, siempre en la muñeca.</p>
+            <span class="pieza__precio">Precio a medida</span>
+          </div>
+        </article>
+    </div>
+
+    <p class="piezas__vacio" id="piezasVacio" hidden>
+      No encontramos esa pieza. Pero podemos hacerla:
+      <a href="#personaliza">cuéntanos qué buscas</a>.
+    </p>
+
+    <p class="piezas__nota reveal">
+      Todo lo que ves se hace por encargo y se adapta a ti: medida, metal y grabado.
+    </p>
   </div>
 </section>
 
@@ -360,6 +405,11 @@
         <label for="nombre">Tu nombre</label>
         <span class="field__err">Escribe tu nombre para poder responderte.</span>
       </div>
+      <div class="field">
+        <input type="email" id="email" name="email" required placeholder=" " autocomplete="email">
+        <label for="email">Tu correo</label>
+        <span class="field__err">Necesitamos un correo válido para enviarte la propuesta.</span>
+      </div>
       <div class="field field--select">
         <select id="pieza" name="pieza" required>
           <option value="" selected disabled hidden></option>
@@ -396,35 +446,32 @@
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="footer">
   <div class="shell footer__in">
-    <div class="footer__brand">
-      <svg class="footer__logo" viewBox="0 0 1200 920" role="img" aria-label="Jireh's VA Jewelry"><use href="#logo-full"/></svg>
-      <p>Joyas personalizadas que cuentan historias<br>y hacen únicos tus momentos más especiales.</p>
-    </div>
+    <svg class="footer__logo" viewBox="0 0 1200 920" role="img" aria-label="Jireh's VA Jewelry"><use href="#logo-full"/></svg>
 
-    <nav class="footer__nav" aria-label="Enlaces del pie">
-      <div>
-        <h4>Tienda</h4>
-        <a href="#colecciones">Colecciones</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#personaliza">Personaliza</a>
-      </div>
-      <div>
-        <h4>Ayuda</h4>
-        <a href="#personaliza">Tiempos de entrega</a>
-        <a href="#personaliza">Cuidado de tu joya</a>
-        <a href="#personaliza">Envíos y cambios</a>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <a href="#personaliza">hola@jirehsva.com</a>
-        <a href="#personaliza">WhatsApp</a>
-        <a href="#personaliza">Instagram</a>
-      </div>
-    </nav>
+    <ul class="redes">
+      <li><a href="#personaliza" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/>
+        </svg></a></li>
+      <li><a href="#personaliza" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.5 20.5 4.9 16a8 8 0 1 1 3.1 3.1z"/>
+          <path d="M8.8 9.2c.3 1.9 2.1 3.7 4 4l1-1.2 1.8.9-.4 1.5c-1.9.5-4.2-.9-5.6-2.3S7.4 8.9 7.9 7l1.5-.4.9 1.8z"/>
+        </svg></a></li>
+      <li><a href="#personaliza" aria-label="Correo">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>
+        </svg></a></li>
+      <li><a href="#personaliza" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 3v11.2a3.3 3.3 0 1 1-2.6-3.2"/><path d="M14 5.6A4.6 4.6 0 0 0 18.6 9"/>
+        </svg></a></li>
+    </ul>
   </div>
 
   <div class="shell footer__bottom">
-    <span>&copy; <span id="year">2026</span> Jireh&rsquo;s VA Jewelry. Todos los derechos reservados.</span>
+    <span>&copy; <span id="year">2026</span> Jireh&rsquo;s VA Jewelry</span>
     <a class="footer__repo" href="https://github.com/AMarthur17/Jireh-s-VA" target="_blank" rel="noopener">Código y proceso de diseño</a>
     <span class="footer__made">Hecho con dedicación, pieza por pieza.</span>
   </div>

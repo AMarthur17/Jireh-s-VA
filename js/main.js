@@ -34,7 +34,7 @@ if (gsap) gsap.registerPlugin(window.ScrollTrigger);
    ───────────────────────────────────────────────────────────── */
 const lineas = q(".line > span");
 const revelables = q(".reveal");
-const trazos = q(".card__art .d, .step__ico .d, .form__done .d");
+const trazos = q(".step__ico .d, .form__done .d");
 
 /* Nota: el estado oculto vive en el CSS (evita el parpadeo sin JS) y
    cada animacion usa fromTo para fijar su propio punto de partida:
@@ -123,10 +123,10 @@ if (gsap && window.ScrollTrigger && !reduced) {
       { opacity: 1, y: 0, duration: 0.85, ease: "power3.out", stagger: 0.08 }, 0.15);
   });
 
-  // fichas y pasos entran con desfase
-  gsap.from(q(".card"), {
-    opacity: 0, y: 46, duration: 1, ease: "power3.out", stagger: 0.09,
-    scrollTrigger: { trigger: ".cards", start: "top 80%" }
+  // las piezas entran con desfase
+  gsap.from(q(".pieza"), {
+    opacity: 0, y: 46, duration: 1, ease: "power3.out", stagger: 0.07,
+    scrollTrigger: { trigger: ".piezas__grid", start: "top 82%" }
   });
   gsap.from(q(".step"), {
     opacity: 0, y: 38, duration: 0.9, ease: "power3.out", stagger: 0.12,
@@ -181,7 +181,7 @@ if (anime && !reduced && "IntersectionObserver" in window) {
     }
   }, { threshold: 0.35 });
 
-  q(".card__art, .step__ico").forEach((el) => dibujar.observe(el));
+  q(".step__ico").forEach((el) => dibujar.observe(el));
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -296,6 +296,63 @@ if (campoGrabado) {
 }
 
 /* ─────────────────────────────────────────────────────────────
+   6b · VITRINA — filtrar por tipo y buscar por texto
+   Un solo criterio combinado: la ficha activa Y el texto escrito.
+   ───────────────────────────────────────────────────────────── */
+const grid = document.getElementById("piezasGrid");
+if (grid) {
+  const piezas = q(".pieza", grid);
+  const chips = q(".chip");
+  const busca = document.getElementById("busca");
+  const vacio = document.getElementById("piezasVacio");
+  let tipo = "todas";
+
+  function aplicar() {
+    const texto = (busca.value || "").trim().toLowerCase();
+    let visibles = 0;
+
+    for (const pieza of piezas) {
+      const coincide =
+        (tipo === "todas" || pieza.dataset.tipo === tipo) &&
+        (!texto || pieza.dataset.busca.includes(texto));
+
+      if (coincide) {
+        visibles++;
+        if (pieza.hidden) {
+          pieza.hidden = false;
+          if (animate && !reduced) {
+            animate(pieza, { opacity: [0, 1], y: [14, 0] },
+              { type: "spring", stiffness: 260, damping: 26 });
+          }
+        }
+      } else {
+        pieza.hidden = true;
+      }
+    }
+
+    vacio.hidden = visibles > 0;
+    // La rejilla cambia de alto: hay que recalcular los disparadores.
+    window.ScrollTrigger?.refresh();
+  }
+
+  chips.forEach((chip) => chip.addEventListener("click", () => {
+    tipo = chip.dataset.filtro;
+    chips.forEach((c) => {
+      const activo = c === chip;
+      c.classList.toggle("is-on", activo);
+      c.setAttribute("aria-pressed", String(activo));
+    });
+    aplicar();
+  }));
+
+  let espera = 0;
+  busca.addEventListener("input", () => {
+    clearTimeout(espera);
+    espera = setTimeout(aplicar, 120);
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
    7 · MENÚ MÓVIL
    ───────────────────────────────────────────────────────────── */
 const burger = document.getElementById("burger");
@@ -326,9 +383,10 @@ if (form) {
 
     q(".field", form).forEach((campo) => {
       const ctrl = campo.querySelector("input, select, textarea");
-      const vacio = !ctrl.value.trim();
-      campo.classList.toggle("is-bad", vacio);
-      if (vacio && !falla) falla = campo;
+      // El email además tiene que tener forma de email (validity del navegador)
+      const mal = !ctrl.value.trim() || (ctrl.type === "email" && !ctrl.checkValidity());
+      campo.classList.toggle("is-bad", mal);
+      if (mal && !falla) falla = campo;
     });
 
     if (falla) {

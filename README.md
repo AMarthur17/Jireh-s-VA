@@ -119,6 +119,27 @@ dois `<text>` em contornos; o monograma já é caminho puro.
 
 ---
 
+## Fotografia
+
+As 8 peças da vitrine usam fotos reais do **Unsplash**, filtradas por licença
+livre (`?license=free`) e baixadas para `assets/piezas/` — nada de hotlink, nada
+de imagem gerada por IA. Cada uma foi conferida visualmente: são fotografias de
+produto e de estúdio, com luz, sombra e textura reais.
+
+A Licença Unsplash permite uso comercial sem pedir permissão; o crédito não é
+obrigatório, mas fica registrado aqui e em `assets/piezas/CREDITOS.json`:
+
+- `anillo-solitario.jpg` — Sabrianna · https://unsplash.com/photos/Y_bxfTa_iUA
+- `anillos-trio.jpg` — Cornelia Ng · https://unsplash.com/photos/zZLhoEwGCeM
+- `aretes-argolla.jpg` — Nataliya Melnychuk · https://unsplash.com/photos/5ngCICAXiH0
+- `aretes-piedra.jpg` — Arteum.ro · https://unsplash.com/photos/VJZdxfvFGuo
+- `dijes-pareja.jpg` — Andres Vera · https://unsplash.com/photos/202NAwjisYA
+- `dije-colgante.jpg` — Alex Azabache · https://unsplash.com/photos/y2ErhoE92KA
+- `pulsera-cadena.jpg` — Nataliya Melnychuk · https://unsplash.com/photos/oO0JAOJhquk
+- `pulsera-ojo.jpg` — PRAHANT STUDIO · https://unsplash.com/photos/W49Oxm_WnmI
+
+---
+
 ## Publicação e pendências
 
 Estático puro: na Vercel, *Import* do repo com **Framework Preset: Other**, build
