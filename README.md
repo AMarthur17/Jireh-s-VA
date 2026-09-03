@@ -37,15 +37,15 @@ ouro (`#7E5F2C` → `#C9A45C` → `#F7EFD8`). Sobre obsidiana **quente** (`#0A09
 porque preto neutro deixa o ouro esverdeado. Apoio de esmeralda profunda
 (`#123B31`), o par histórico da joalheria, só em brilhos e no painel de sucesso.
 
-**Tipografia, imitando a do logotipo.** Duas famílias, nenhuma escolhida por
-hábito: **Bodoni Moda** porque o logotipo é um didone de alto contraste — com o
-eixo óptico forçado ao máximo (`font-variation-settings: "opsz" 96`), que é o que
-afina os traços finos até a delicadeza da marca. E **Jost** porque a linha
-"JEWELRY" é uma geométrica tipo Futura. A interface herda a voz do logotipo em
-vez de importar uma sans qualquer.
+**Tipografia, imitando a do logotipo.** **Playfair Display** para títulos, porque
+guarda o ar didone da marca; e **Jost** para a interface, porque a linha "JEWELRY"
+do logotipo é uma geométrica tipo Futura.
 
-A tipografia original do logotipo é licenciada e não acompanha a marca; Bodoni
-Moda é a aproximação mais fiel disponível em fonte aberta.
+A primeira tentativa foi Bodoni Moda com o eixo óptico no máximo — no papel, o
+didone mais fiel ao logotipo. **Na tela ficou ilegível:** sobre fundo escuro os
+traços finos de um didone puro afinam ainda mais e somem. Playfair mantém o
+mesmo ar com traços que aguentam o contraste invertido. Fidelidade que não se lê
+não é fidelidade.
 
 **Estrutura.** Numeração `01–04` só no "Proceso", onde a ordem carrega informação
 real. Nos pilares e nas coleções ela foi removida: ali seria decoração fingindo

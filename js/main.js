@@ -112,11 +112,6 @@ if (gsap && window.ScrollTrigger && !reduced) {
       { opacity: 1, y: 0, duration: 0.85, ease: "power3.out", stagger: 0.08 }, 0.15);
   });
 
-  // las piezas entran con desfase
-  gsap.from(q(".pieza"), {
-    opacity: 0, y: 46, duration: 1, ease: "power3.out", stagger: 0.07,
-    scrollTrigger: { trigger: ".piezas__grid", start: "top 82%" }
-  });
   gsap.from(q(".step"), {
     opacity: 0, y: 38, duration: 0.9, ease: "power3.out", stagger: 0.12,
     scrollTrigger: { trigger: ".steps", start: "top 82%" }
@@ -147,6 +142,15 @@ if (gsap && window.ScrollTrigger && !reduced) {
   gsap.to(".historia__logo", {
     yPercent: -14, ease: "none",
     scrollTrigger: { trigger: ".historia", start: "top bottom", end: "bottom top", scrub: 0.6 }
+  });
+
+  // La altura de la pagina cambia cuando entran las fuentes y las fotos.
+  // Sin recalcular, los disparadores apuntan a posiciones viejas.
+  const recalcular = () => ST.refresh();
+  document.fonts?.ready.then(recalcular);
+  addEventListener("load", recalcular);
+  q(".pieza img").forEach((img) => {
+    if (!img.complete) img.addEventListener("load", recalcular, { once: true });
   });
 } else {
   document.getElementById("header").classList.add("is-stuck");
@@ -307,20 +311,16 @@ if (grid) {
 
       if (coincide) {
         visibles++;
-        if (pieza.hidden) {
-          pieza.hidden = false;
-          if (animate && !reduced) {
-            animate(pieza, { opacity: [0, 1], y: [14, 0] },
-              { type: "spring", stiffness: 260, damping: 26 });
-          }
-        }
+        pieza.hidden = false;
+        pieza.classList.add("vista");   // el CSS hace el fundido
       } else {
         pieza.hidden = true;
       }
     }
 
     vacio.hidden = visibles > 0;
-    // La rejilla cambia de alto: hay que recalcular los disparadores.
+    // La rejilla cambia de alto: los disparadores de otras secciones
+    // necesitan recalcular su posición.
     window.ScrollTrigger?.refresh();
   }
 
@@ -339,6 +339,34 @@ if (grid) {
     clearTimeout(espera);
     espera = setTimeout(aplicar, 120);
   });
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6c · ENTRADA DE LAS PIEZAS
+   Con IntersectionObserver en vez de posiciones cacheadas: el
+   observador reacciona a lo que de verdad está en pantalla, aunque
+   la página haya crecido al cargar fuentes o fotos.
+   ───────────────────────────────────────────────────────────── */
+{
+  const piezas = q(".pieza");
+  const mostrar = (el) => el.classList.add("vista");
+
+  if (reduced || !("IntersectionObserver" in window)) {
+    piezas.forEach(mostrar);
+  } else {
+    piezas.forEach((el, i) => el.style.setProperty("--orden", i % 4));
+    const obs = new IntersectionObserver((entradas, o) => {
+      for (const e of entradas) {
+        if (!e.isIntersecting) continue;
+        mostrar(e.target);
+        o.unobserve(e.target);
+      }
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    piezas.forEach((el) => obs.observe(el));
+
+    // Red de seguridad: pase lo que pase, nadie se queda invisible.
+    setTimeout(() => piezas.forEach(mostrar), 4000);
+  }
 }
 
 /* Las fotos aparecen cuando de verdad han cargado, sobre su color

@@ -3,8 +3,8 @@
 
    PALETA  · muestreada del degradado metálico del logotipo,
              sobre obsidiana cálida y un apoyo de esmeralda.
-   TIPO    · Bodoni Moda (el didone del logotipo) + Jost (la
-             geométrica de la línea "JEWELRY").
+   TIPO    · Playfair Display (el aire didone del logotipo, con
+             trazos que aguantan el fondo oscuro) + Jost.
    FIRMA   · el grabado en vivo sobre el aro 3D del hero.
    ═══════════════════════════════════════════════════════════════ */
 
@@ -35,7 +35,7 @@
 
   --grad-oro:linear-gradient(100deg,#A87F3F 0%,#E7CF95 16%,#B78F49 30%,#F4E2B2 46%,#A9813F 60%,#EFDAA6 74%,#B08744 88%,#E8D19A 100%);
 
-  --display:"Bodoni Moda","Didot","Bodoni MT",Georgia,serif;
+  --display:"Playfair Display","Didot","Bodoni MT",Georgia,serif;
   --sans:"Jost","Futura","Century Gothic",system-ui,sans-serif;
 
   --shell:min(1280px,91vw);
@@ -79,7 +79,7 @@ ul,ol{list-style:none}
 .tag::before{content:"";width:26px;height:1px;background:var(--oro-700)}
 
 .h2{
-  font-family:var(--display);font-weight:400;font-variation-settings:"opsz" 96;
+  font-family:var(--display);font-weight:500;
   font-size:clamp(1.95rem,1.15rem + 4vw,4.5rem);
   line-height:1.06;letter-spacing:-.012em;color:var(--marfil);
 }
@@ -145,7 +145,7 @@ ul,ol{list-style:none}
 .header__logo{display:flex;align-items:center;gap:.8rem;flex:0 0 auto}
 .header__mark{width:52px;height:auto;transition:transform .6s var(--ease)}
 .header__logo:hover .header__mark{transform:rotate(-6deg) scale(1.06)}
-.header__name{font-family:var(--display);font-weight:400;font-variation-settings:"opsz" 96;
+.header__name{font-family:var(--display);font-weight:500;
   font-size:1.04rem;letter-spacing:.1em;color:var(--marfil);line-height:1;display:grid;gap:.32rem}
 .header__name em{font-family:var(--sans);font-style:normal;font-weight:300;
   font-size:.52rem;letter-spacing:.4em;color:var(--oro-500)}
@@ -197,7 +197,7 @@ ul,ol{list-style:none}
 .eyebrow__dot{width:5px;height:5px;border-radius:50%;background:var(--oro-500);
   box-shadow:0 0 0 4px rgba(201,164,92,.14)}
 
-.hero__title{font-family:var(--display);font-weight:400;font-variation-settings:"opsz" 96;color:var(--marfil);
+.hero__title{font-family:var(--display);font-weight:500;color:var(--marfil);
   font-size:clamp(2.8rem,1.2rem + 6.3vw,6.6rem);line-height:1.03;letter-spacing:-.02em}
 .hero__title em{font-style:italic;background:var(--grad-oro);
   -webkit-background-clip:text;background-clip:text;color:transparent}
@@ -283,8 +283,14 @@ body.no-3d .engrave{display:none}
 
 .piezas__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;perspective:1200px}
 
-.pieza{position:relative;transform-style:preserve-3d;transition:opacity .35s var(--ease)}
+.pieza{position:relative;transform-style:preserve-3d}
 .pieza[hidden]{display:none}
+/* Entrada escalonada por columna. Sin JS no hay estado oculto: las
+   piezas se ven de una vez, que es el comportamiento correcto. */
+.js .pieza{opacity:0;transform:translateY(38px);
+  transition:opacity .8s var(--ease),transform .8s var(--ease);
+  transition-delay:calc(var(--orden,0) * 90ms)}
+.js .pieza.vista{opacity:1;transform:none}
 /* El color dominante de cada foto ocupa el hueco mientras carga: el
    grid nunca muestra cajas vacías ni da un salto de maquetación. */
 .pieza__foto{position:relative;overflow:hidden;border-radius:2px;

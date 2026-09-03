@@ -93,7 +93,7 @@ function init() {
     grabCtx.fillRect(0, 0, 2048, 180);
     if (t) {
       grabCtx.fillStyle = "#fff";
-      grabCtx.font = '500 86px "Bodoni Moda", Didot, "Bodoni MT", Georgia, serif';
+      grabCtx.font = '500 86px "Playfair Display", Didot, "Bodoni MT", Georgia, serif';
       grabCtx.textBaseline = "middle";
       const paso = 2048 / 3;           // se repite 3 veces alrededor del aro
       for (let i = 0; i < 3; i++) escribirEspaciado(grabCtx, t, paso * (i + 0.5), 90, 12);
