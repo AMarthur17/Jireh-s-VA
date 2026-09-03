@@ -128,6 +128,18 @@ O que foi feito a partir dele, tudo por recorte — nada é redesenhado:
   alfa, não a olho.
 - `assets/favicon.png` — o monograma centrado sobre a obsidiana da marca.
 
+**Resolução.** O arquivo original (561×445) rendia bem no tamanho pequeno do
+cabeçalho, mas ficava granulado nas duas seções onde a logo aparece grande —
+"Quiénes somos" e o rodapé chegam a 320px CSS, que em tela retina de 3x pede
+960px reais de imagem, quase o dobro do que o arquivo tinha. `logo.png` e
+`logo-mark.png` foram ampliados por reamostragem Lanczos (o filtro de maior
+qualidade disponível) até cobrir esse pior caso com folga, com um leve realce
+de nitidez aplicado **só nos canais de cor** — nunca no alfa, para não criar
+halo escuro contra o fundo transparente. Nenhum traço, cor ou proporção foi
+alterado: o resultado foi conferido reduzindo a versão ampliada de volta ao
+tamanho original e comparando pixel a pixel contra o arquivo enviado pelo
+cliente, e inspecionado visualmente lado a lado.
+
 Como o logotipo agora é imagem e não traçado, o preloader não pode mais
 "desenhá-lo". Ele passou a ser descoberto por um **barrido de máscara** da
 esquerda para a direita (`clip-path`), que mantém o momento de abertura sem
