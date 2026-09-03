@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jireh's VA Jewelry — Joyas personalizadas que cuentan tu historia</title>
+<meta name="description" content="Jireh's VA Jewelry: joyería personalizada hecha a mano. Diseñamos contigo piezas únicas —anillos, dijes, aretes y pulseras grabadas— para tus momentos más especiales.">
+<meta name="theme-color" content="#0B0A09">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jireh's VA Jewelry — Joyas que cuentan historias">
+<meta property="og:description" content="Creamos joyas personalizadas, pieza por pieza, con dedicación y atención a cada detalle.">
+<meta property="og:site_name" content="Jireh&rsquo;s VA Jewelry">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<!-- og:image: pendiente de una imagen 1200x630 en PNG o JPG. Se deja
+     fuera a proposito: una referencia rota da peor vista previa que
+     ninguna, y las redes sociales no admiten SVG en este campo. -->
+
+<link rel="preload" href="assets/fonts/bodoni-moda-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jost-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.className = "js";</script>
+</head>
+<body>
+
+<!-- ══════════ SPRITE SVG · logo vectorial reconstruido ══════════ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="jvGold" gradientUnits="userSpaceOnUse" x1="180" y1="60" x2="1140" y2="700">
+      <stop offset="0%"   stop-color="#A87F3F"/>
+      <stop offset="14%"  stop-color="#E7CF95"/>
+      <stop offset="28%"  stop-color="#B78F49"/>
+      <stop offset="44%"  stop-color="#F4E2B2"/>
+      <stop offset="58%"  stop-color="#A9813F"/>
+      <stop offset="72%"  stop-color="#EFDAA6"/>
+      <stop offset="86%"  stop-color="#B08744"/>
+      <stop offset="100%" stop-color="#E8D19A"/>
+    </linearGradient>
+    <linearGradient id="jvGoldSoft" gradientUnits="userSpaceOnUse" x1="300" y1="820" x2="900" y2="890">
+      <stop offset="0%"   stop-color="#C9A45C"/>
+      <stop offset="50%"  stop-color="#F4E2B2"/>
+      <stop offset="100%" stop-color="#C09A52"/>
+    </linearGradient>
+
+    <g id="jvMarkPaths" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path class="jv-p" d="M1152 196 C1062 296 956 384 834 434 C726 478 596 506 470 502 C346 498 262 466 256 412 C250 358 322 330 408 340 C526 354 632 408 716 470" stroke="url(#jvGold)" stroke-width="4.5"/>
+      <path class="jv-p" d="M614 452 C642 342 678 206 710 116 C730 56 780 30 802 52 C826 76 800 130 752 174 C706 216 656 282 620 350" stroke="url(#jvGold)" stroke-width="4"/>
+      <path class="jv-p" d="M764 86 C744 214 702 350 648 462 C626 508 606 534 596 528 C586 522 594 490 610 450 C664 316 718 182 744 82 Z" fill="url(#jvGold)" stroke="url(#jvGold)" stroke-width="2"/>
+    </g>
+
+    <symbol id="logo-mark" viewBox="236 26 940 520"><use href="#jvMarkPaths"/></symbol>
+
+    <symbol id="logo-full" viewBox="0 0 1200 920">
+      <use href="#jvMarkPaths"/>
+      <g text-anchor="middle">
+        <text class="jv-word" x="600" y="768" font-size="196" letter-spacing="2" fill="url(#jvGold)">JIREH&rsquo;S VA</text>
+        <text class="jv-sub" x="600" y="878" font-size="62" letter-spacing="29" fill="url(#jvGoldSoft)">JEWELRY</text>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <svg class="loader__logo" viewBox="236 26 940 520" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <div class="loader__bar"><i></i></div>
+    <span class="loader__txt">Puliendo cada detalle&hellip;</span>
+  </div>
+</div>
+
+<div class="scroll-progress" aria-hidden="true"><i id="progressBar"></i></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"><i></i></span></div>
+<div class="grain" aria-hidden="true"></div>
+
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="header" id="header">
+  <div class="shell header__in">
+    <a class="header__logo" href="#top" aria-label="Jireh's VA Jewelry — inicio">
+      <svg class="header__mark" viewBox="236 26 940 520" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span class="header__name">Jireh&rsquo;s VA<em>Jewelry</em></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegación principal">
+      <a href="#historia">Historia</a>
+      <a href="#colecciones">Colecciones</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#personaliza">Personaliza</a>
+    </nav>
+
+    <a class="btn btn--gold header__cta" href="#personaliza" data-magnetic><span>Diseña tu joya</span></a>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="hero__halo" aria-hidden="true"></div>
+  <canvas id="jewel" class="hero__canvas" aria-hidden="true"></canvas>
+
+  <div class="shell hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow reveal"><i class="eyebrow__dot"></i>Joyería personalizada &middot; Hecha a mano</p>
+
+      <h1 class="hero__title">
+        <span class="line"><span>Cada joya guarda</span></span>
+        <span class="line"><span>una <em>historia</em>.</span></span>
+        <span class="line"><span>Hagamos la tuya.</span></span>
+      </h1>
+
+      <p class="hero__lead reveal">
+        Creamos piezas únicas, elaboradas con dedicación, calidad y atención a cada
+        detalle — para que luzcas una joya tan especial como tú.
+      </p>
+
+      <div class="hero__actions reveal">
+        <a class="btn btn--gold" href="#personaliza" data-magnetic><span>Diseña tu joya</span></a>
+        <a class="btn btn--ghost" href="#colecciones" data-magnetic><span>Ver colecciones</span></a>
+      </div>
+
+      <!-- FIRMA: el grabado ocurre en vivo sobre el aro 3D -->
+      <div class="engrave reveal">
+        <span class="engrave__hint">Escribe un nombre y míralo grabado</span>
+        <div class="engrave__field">
+          <input id="engrave" type="text" value="JIREH" maxlength="12" spellcheck="false"
+                 autocomplete="off" placeholder="Tu nombre"
+                 aria-label="Nombre para grabar en el anillo">
+          <svg class="engrave__tool ink" viewBox="0 0 100 100" aria-hidden="true">
+            <path class="d" d="M70 12 L88 30 L36 82 L14 88 L20 66 Z"/>
+            <path class="d" d="M62 20 L80 38"/>
+          </svg>
+        </div>
+        <p class="engrave__note">Lo grabamos a mano, letra por letra. Por fuera o escondido por dentro: tú eliges.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__hint" aria-hidden="true"><span>Desliza</span><i></i></div>
+</section>
+
+<!-- ══════════ MARQUEE ══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marquee">
+    <span>Hecho a mano<i>&#10022;</i>Diseño 1:1<i>&#10022;</i>Grabado personalizado<i>&#10022;</i>Piezas únicas<i>&#10022;</i>Empaque de regalo<i>&#10022;</i></span>
+    <span>Hecho a mano<i>&#10022;</i>Diseño 1:1<i>&#10022;</i>Grabado personalizado<i>&#10022;</i>Piezas únicas<i>&#10022;</i>Empaque de regalo<i>&#10022;</i></span>
+  </div>
+</div>
+
+<!-- ══════════ HISTORIA ══════════ -->
+<section class="section historia" id="historia">
+  <div class="shell historia__in">
+    <aside class="historia__aside">
+      <p class="tag reveal">Quiénes somos</p>
+      <svg class="historia__logo" viewBox="0 0 1200 920" role="img" aria-label="Jireh's VA Jewelry"><use href="#logo-full"/></svg>
+      <p class="historia__sig reveal">Joyería de autor &middot; desde el primer boceto</p>
+    </aside>
+
+    <div class="historia__body">
+      <h2 class="h2">
+        <span class="line"><span>Una joya no se compra:</span></span>
+        <span class="line"><span>se <em>elige</em>, se piensa,</span></span>
+        <span class="line"><span>se regala.</span></span>
+      </h2>
+
+      <p class="lead reveal">
+        Por eso cada pieza de Jireh&rsquo;s VA nace de una conversación: un nombre, una fecha,
+        un lugar, una frase que solo ustedes dos entienden. Nosotros la convertimos en metal.
+      </p>
+
+      <ul class="pillars">
+        <li class="pillar reveal">
+          <h3>Diseño 1:1</h3>
+          <p>Trabajamos contigo, no con un catálogo. Tu idea manda; nosotros la afinamos.</p>
+        </li>
+        <li class="pillar reveal">
+          <h3>Hecho a mano</h3>
+          <p>Fundido, pulido y grabado pieza por pieza. Nada de producción en serie.</p>
+        </li>
+        <li class="pillar reveal">
+          <h3>Detalle infinito</h3>
+          <p>Revisamos cada curva, cada letra y cada brillo antes de que salga de nuestras manos.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COLECCIONES ══════════ -->
+<section class="section colecciones" id="colecciones">
+  <div class="shell">
+    <header class="sec-head">
+      <p class="tag reveal">Lo que hacemos</p>
+      <h2 class="h2">
+        <span class="line"><span>Cuatro formas</span></span>
+        <span class="line"><span>de decir algo</span></span>
+        <span class="line"><span><em>para siempre</em>.</span></span>
+      </h2>
+    </header>
+
+    <div class="cards">
+      <article class="card" data-tilt>
+        <div class="card__art">
+          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
+            <circle class="d" cx="100" cy="124" r="46"/>
+            <circle class="d" cx="100" cy="124" r="38"/>
+            <path class="d" d="M100 44 L124 74 L100 98 L76 74 Z"/>
+            <path class="d" d="M76 74 H124 M100 44 V98 M76 74 L100 98 L124 74"/>
+          </svg>
+        </div>
+        <h3>Anillos de compromiso</h3>
+        <p>El &ldquo;sí&rdquo; que se queda para siempre, en una pieza pensada solo para ustedes.</p>
+        <span class="card__go">Ver más<i>&rarr;</i></span>
+      </article>
+
+      <article class="card" data-tilt>
+        <div class="card__art">
+          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
+            <path class="d" d="M38 38 C58 108 142 108 162 38"/>
+            <path class="d" d="M100 106 V124"/>
+            <path class="d" d="M100 124 C122 124 136 141 136 157 C136 173 120 183 100 183 C80 183 64 173 64 157 C64 141 78 124 100 124 Z"/>
+            <path class="d" d="M84 155 H116 M100 139 V171"/>
+          </svg>
+        </div>
+        <h3>Dijes con nombre</h3>
+        <p>Tu palabra favorita, colgando del cuello. Caligrafía trazada a mano.</p>
+        <span class="card__go">Ver más<i>&rarr;</i></span>
+      </article>
+
+      <article class="card" data-tilt>
+        <div class="card__art">
+          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
+            <path class="d" d="M62 42 C40 42 34 64 48 76 C60 86 74 78 74 64 C74 52 68 42 62 42 Z"/>
+            <path class="d" d="M62 86 V118"/>
+            <path class="d" d="M62 118 L86 150 L62 182 L38 150 Z"/>
+            <path class="d" d="M138 42 C116 42 110 64 124 76 C136 86 150 78 150 64 C150 52 144 42 138 42 Z"/>
+            <path class="d" d="M138 86 V118"/>
+            <path class="d" d="M138 118 L162 150 L138 182 L114 150 Z"/>
+          </svg>
+        </div>
+        <h3>Aretes de autor</h3>
+        <p>Piezas pequeñas, presencia enorme. Diseños que no vas a ver en nadie más.</p>
+        <span class="card__go">Ver más<i>&rarr;</i></span>
+      </article>
+
+      <article class="card" data-tilt>
+        <div class="card__art">
+          <svg viewBox="0 0 200 200" class="ink" aria-hidden="true">
+            <ellipse class="d" cx="100" cy="112" rx="66" ry="52"/>
+            <ellipse class="d" cx="100" cy="112" rx="57" ry="43"/>
+            <path class="d" d="M100 58 L113 74 L100 90 L87 74 Z"/>
+            <path class="d" d="M60 146 L72 158 M128 158 L140 146"/>
+          </svg>
+        </div>
+        <h3>Pulseras grabadas</h3>
+        <p>Una fecha por dentro, un secreto por fuera. Lo importante no siempre se ve.</p>
+        <span class="card__go">Ver más<i>&rarr;</i></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESO ══════════ -->
+<section class="section proceso" id="proceso">
+  <div class="shell">
+    <header class="sec-head sec-head--center">
+      <p class="tag reveal">Cómo trabajamos</p>
+      <h2 class="h2 h2--center">
+        <span class="line"><span>De una idea</span></span>
+        <span class="line"><span>a una joya</span></span>
+        <span class="line"><span>en <em>cuatro pasos</em>.</span></span>
+      </h2>
+    </header>
+
+    <ol class="steps">
+      <li class="step">
+        <div class="step__ico">
+          <svg viewBox="0 0 100 100" class="ink" aria-hidden="true">
+            <path class="d" d="M18 22 H82 a8 8 0 0 1 8 8 v32 a8 8 0 0 1 -8 8 H46 L30 82 V70 H18 a8 8 0 0 1 -8 -8 V30 a8 8 0 0 1 8 -8 Z"/>
+            <path class="d" d="M28 40 H72 M28 54 H56"/>
+          </svg>
+        </div>
+        <span class="step__n">01</span>
+        <h3>Conversamos</h3>
+        <p>Nos cuentas la historia, la ocasión y el presupuesto. Sin compromiso.</p>
+      </li>
+      <li class="step">
+        <div class="step__ico">
+          <svg viewBox="0 0 100 100" class="ink" aria-hidden="true">
+            <path class="d" d="M70 12 L88 30 L36 82 L14 88 L20 66 Z"/>
+            <path class="d" d="M62 20 L80 38"/>
+            <path class="d" d="M20 66 L36 82"/>
+          </svg>
+        </div>
+        <span class="step__n">02</span>
+        <h3>Diseñamos</h3>
+        <p>Recibes bocetos y una vista previa realista de tu pieza antes de fundir nada.</p>
+      </li>
+      <li class="step">
+        <div class="step__ico">
+          <svg viewBox="0 0 100 100" class="ink" aria-hidden="true">
+            <path class="d" d="M50 12 L76 40 L50 88 L24 40 Z"/>
+            <path class="d" d="M24 40 H76 M50 12 L38 40 L50 88 M50 12 L62 40"/>
+          </svg>
+        </div>
+        <span class="step__n">03</span>
+        <h3>Elaboramos</h3>
+        <p>Fundimos, pulimos y grabamos a mano. Cada pieza pasa control de calidad.</p>
+      </li>
+      <li class="step">
+        <div class="step__ico">
+          <svg viewBox="0 0 100 100" class="ink" aria-hidden="true">
+            <path class="d" d="M16 40 H84 V86 a4 4 0 0 1 -4 4 H20 a4 4 0 0 1 -4 -4 Z"/>
+            <path class="d" d="M10 26 H90 V40 H10 Z"/>
+            <path class="d" d="M50 26 V90"/>
+            <path class="d" d="M50 26 C40 26 30 20 32 14 C34 8 46 12 50 26 C54 12 66 8 68 14 C70 20 60 26 50 26 Z"/>
+          </svg>
+        </div>
+        <span class="step__n">04</span>
+        <h3>Entregamos</h3>
+        <p>Llega en empaque de regalo, con certificado y lista para el momento.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════ CTA · PERSONALIZA ══════════ -->
+<section class="section cta" id="personaliza">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="shell cta__in">
+    <div class="cta__copy">
+      <p class="tag reveal">Empieza aquí</p>
+      <h2 class="h2">
+        <span class="line"><span>¿Empezamos</span></span>
+        <span class="line"><span>tu <em>pieza</em>?</span></span>
+      </h2>
+      <p class="lead reveal">
+        Cuéntanos la historia y te respondemos con una propuesta de diseño en
+        menos de 24 horas. Sin costo y sin compromiso.
+      </p>
+      <ul class="cta__list reveal">
+        <li>Boceto inicial gratuito</li>
+        <li>Ajustes ilimitados antes de fundir</li>
+        <li>Envíos a todo el país</li>
+      </ul>
+    </div>
+
+    <form class="form reveal" id="form" novalidate>
+      <div class="field">
+        <input type="text" id="nombre" name="nombre" required placeholder=" " autocomplete="name">
+        <label for="nombre">Tu nombre</label>
+        <span class="field__err">Escribe tu nombre para poder responderte.</span>
+      </div>
+      <div class="field field--select">
+        <select id="pieza" name="pieza" required>
+          <option value="" selected disabled hidden></option>
+          <option>Anillo</option>
+          <option>Dije con nombre</option>
+          <option>Aretes</option>
+          <option>Pulsera</option>
+          <option>Aún no lo sé</option>
+        </select>
+        <label for="pieza">¿Qué quieres crear?</label>
+        <span class="field__err">Elige una opción. Si dudas, marca «Aún no lo sé».</span>
+      </div>
+      <div class="field">
+        <textarea id="mensaje" name="mensaje" rows="3" required placeholder=" "></textarea>
+        <label for="mensaje">La ocasión y la historia detrás</label>
+        <span class="field__err">Cuéntanos algo, aunque sea una línea: de ahí sale el diseño.</span>
+      </div>
+      <button class="btn btn--gold btn--full" type="submit" data-magnetic><span>Enviar mi idea</span></button>
+      <p class="form__note">Te respondemos por WhatsApp o correo. Nunca compartimos tus datos.</p>
+
+      <div class="form__done" id="formDone" hidden>
+        <svg viewBox="0 0 60 60" class="ink" aria-hidden="true">
+          <circle class="d" cx="30" cy="30" r="25"/><path class="d" d="M18 31 L27 40 L43 21"/>
+        </svg>
+        <h3>¡Recibido!</h3>
+        <p>Gracias, <b id="doneName">&mdash;</b>. Ya estamos leyendo tu historia: te respondemos en menos de 24 horas.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="shell footer__in">
+    <div class="footer__brand">
+      <svg class="footer__logo" viewBox="0 0 1200 920" role="img" aria-label="Jireh's VA Jewelry"><use href="#logo-full"/></svg>
+      <p>Joyas personalizadas que cuentan historias<br>y hacen únicos tus momentos más especiales.</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Enlaces del pie">
+      <div>
+        <h4>Tienda</h4>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#personaliza">Personaliza</a>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <a href="#personaliza">Tiempos de entrega</a>
+        <a href="#personaliza">Cuidado de tu joya</a>
+        <a href="#personaliza">Envíos y cambios</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="#personaliza">hola@jirehsva.com</a>
+        <a href="#personaliza">WhatsApp</a>
+        <a href="#personaliza">Instagram</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="shell footer__bottom">
+    <span>&copy; <span id="year">2026</span> Jireh&rsquo;s VA Jewelry. Todos los derechos reservados.</span>
+    <a class="footer__repo" href="https://github.com/AMarthur17/Jireh-s-VA" target="_blank" rel="noopener">Código y proceso de diseño</a>
+    <span class="footer__made">Hecho con dedicación, pieza por pieza.</span>
+  </div>
+</footer>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/anime.min.js"></script>
+<script src="js/vendor/motion.js"></script>
+
+<script type="importmap">
+{ "imports": { "three": "./js/vendor/three.module.min.js" } }
+</script>
+
+<script type="module" src="js/scene.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

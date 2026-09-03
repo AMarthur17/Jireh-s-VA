@@ -1,0 +1,6 @@
+# Finales de línea normalizados en el repositorio (LF), sin importar el SO
+* text=auto eol=lf
+
+*.woff2 binary
+*.png   binary
+*.jpg   binary

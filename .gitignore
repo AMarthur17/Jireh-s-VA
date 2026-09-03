@@ -1,0 +1,19 @@
+# Artefactos de herramientas de IA — no forman parte del proyecto
+.agents/
+.claude/
+skills-lock.json
+
+# Despliegue
+.vercel/
+
+# Sistema operativo / editor
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Dependencias (el proyecto no usa ninguna: js/vendor/ SÍ se versiona)
+node_modules/
