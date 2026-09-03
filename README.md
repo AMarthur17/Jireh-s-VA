@@ -142,6 +142,18 @@ livre (`?license=free`) e baixadas para `assets/piezas/` — nada de hotlink, na
 de imagem gerada por IA. Cada uma foi conferida visualmente: são fotografias de
 produto e de estúdio, com luz, sombra e textura reais.
 
+**Otimização.** As fotos originais tinham 760 px de largura para um espaço de
+276 px — quase 8x mais pixels do que a tela usa. Cada uma virou duas versões
+**WebP** (320 e 640 px) servidas por `srcset` + `sizes`, com um JPEG de 560 px
+como reserva para navegadores sem WebP. Enquanto a foto não chega, o espaço fica
+preenchido com a **cor dominante** da própria imagem, extraída na geração: nunca
+há caixa vazia nem salto de layout.
+
+| | antes | depois |
+|---|---|---|
+| Tela 1x | 622 KB | **67 KB** |
+| Tela 2x | 622 KB | **183 KB** |
+
 A Licença Unsplash permite uso comercial sem pedir permissão; o crédito não é
 obrigatório, mas fica registrado aqui e em `assets/piezas/CREDITOS.json`:
 

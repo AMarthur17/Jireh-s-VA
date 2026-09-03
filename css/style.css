@@ -285,14 +285,20 @@ body.no-3d .engrave{display:none}
 
 .pieza{position:relative;transform-style:preserve-3d;transition:opacity .35s var(--ease)}
 .pieza[hidden]{display:none}
+/* El color dominante de cada foto ocupa el hueco mientras carga: el
+   grid nunca muestra cajas vacías ni da un salto de maquetación. */
 .pieza__foto{position:relative;overflow:hidden;border-radius:2px;
-  border:1px solid rgba(201,164,92,.14);background:var(--noir-700);
+  border:1px solid rgba(201,164,92,.14);background:var(--tono,var(--noir-700));
   transition:border-color .5s var(--ease),box-shadow .5s var(--ease)}
 .pieza__foto::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,transparent 45%,rgba(10,9,8,.55));
   opacity:0;transition:opacity .5s var(--ease)}
 .pieza__foto img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;
-  transition:transform 1.1s var(--ease),filter .6s var(--ease);filter:saturate(.85)}
+  transition:transform 1.1s var(--ease),filter .6s var(--ease),opacity .6s ease;
+  filter:saturate(.85)}
+/* Solo con JS: si algo fallara, la foto se ve igual. */
+.js .pieza__foto img{opacity:0}
+.js .pieza__foto img.lista{opacity:1}
 .pieza:hover .pieza__foto{border-color:rgba(201,164,92,.45);box-shadow:0 26px 60px -30px rgba(0,0,0,.95)}
 .pieza:hover .pieza__foto img{transform:scale(1.06);filter:saturate(1)}
 .pieza:hover .pieza__foto::after{opacity:1}

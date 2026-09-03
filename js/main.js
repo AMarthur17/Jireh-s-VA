@@ -341,6 +341,14 @@ if (grid) {
   });
 }
 
+/* Las fotos aparecen cuando de verdad han cargado, sobre su color
+   dominante. Con red lenta se ve el tono, no un hueco. */
+q(".pieza__foto img").forEach((img) => {
+  if (img.complete && img.naturalWidth) img.classList.add("lista");
+  else img.addEventListener("load", () => img.classList.add("lista"), { once: true });
+  img.addEventListener("error", () => img.classList.add("lista"), { once: true });
+});
+
 /* ─────────────────────────────────────────────────────────────
    7 · MENÚ MÓVIL
    ───────────────────────────────────────────────────────────── */

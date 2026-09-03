@@ -1,0 +1,26 @@
+{
+ "anillo-solitario": {
+  "tono": "#33302f"
+ },
+ "anillos-trio": {
+  "tono": "#cdc7c2"
+ },
+ "aretes-argolla": {
+  "tono": "#797675"
+ },
+ "aretes-piedra": {
+  "tono": "#5b775d"
+ },
+ "dije-colgante": {
+  "tono": "#1f1f1f"
+ },
+ "dijes-pareja": {
+  "tono": "#87633f"
+ },
+ "pulsera-cadena": {
+  "tono": "#9c8d7c"
+ },
+ "pulsera-ojo": {
+  "tono": "#e3c0ab"
+ }
+}
