@@ -104,10 +104,6 @@ ul,ol{list-style:none}
 .ink .d{fill:none;stroke:var(--oro-500);stroke-width:2.4;
   stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
 
-/* logotipo (sprite) */
-.jv-word{font-family:var(--display);font-weight:500;font-optical-sizing:none}
-.jv-sub{font-family:var(--sans);font-weight:300}
-
 /* ── 4. CAPAS GLOBALES ───────────────────────────────────────── */
 /* Sin mix-blend-mode: una capa fija a pantalla completa que se mezcla
    obliga al navegador a recomponer todo en cada fotograma. */
@@ -131,7 +127,7 @@ ul,ol{list-style:none}
 /* ── 5. PRELOADER ────────────────────────────────────────────── */
 .loader{position:fixed;inset:0;z-index:100;background:var(--noir);display:grid;place-items:center}
 .loader__inner{display:grid;justify-items:center;gap:1.4rem;width:min(320px,70vw)}
-.loader__logo{width:100%;height:auto;overflow:visible}
+.loader__logo{width:100%;height:auto}
 .loader__bar{width:100%;height:1px;background:rgba(201,164,92,.15);overflow:hidden}
 .loader__bar i{display:block;height:100%;width:0;background:var(--grad-oro)}
 .loader__txt{font-size:.63rem;letter-spacing:.32em;text-transform:uppercase;color:var(--marfil-faint)}
@@ -147,10 +143,10 @@ ul,ol{list-style:none}
 .header.is-stuck .header__in{padding-block:.8rem}
 
 .header__logo{display:flex;align-items:center;gap:.8rem;flex:0 0 auto}
-.header__mark{width:44px;height:31px;overflow:visible;transition:transform .6s var(--ease)}
+.header__mark{width:52px;height:auto;transition:transform .6s var(--ease)}
 .header__logo:hover .header__mark{transform:rotate(-6deg) scale(1.06)}
-.header__name{font-family:var(--display);font-weight:500;font-size:1rem;letter-spacing:.08em;
-  color:var(--marfil);line-height:1;display:grid;gap:.3rem}
+.header__name{font-family:var(--display);font-weight:400;font-variation-settings:"opsz" 96;
+  font-size:1.04rem;letter-spacing:.1em;color:var(--marfil);line-height:1;display:grid;gap:.32rem}
 .header__name em{font-family:var(--sans);font-style:normal;font-weight:300;
   font-size:.52rem;letter-spacing:.4em;color:var(--oro-500)}
 
@@ -246,9 +242,9 @@ body.no-3d .engrave{display:none}
 
 /* ── 10. HISTORIA ────────────────────────────────────────────── */
 .historia{background:linear-gradient(180deg,var(--noir),var(--noir-800) 60%,var(--noir))}
-.historia__in{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2.5rem,6vw,6rem);align-items:start}
+.historia__in{display:grid;grid-template-columns:clamp(260px,30%,360px) minmax(0,1fr);gap:clamp(2.5rem,6vw,6rem);align-items:start}
 .historia__aside{position:sticky;top:21vh;display:grid;justify-items:start;gap:1.8rem}
-.historia__logo{width:min(100%,330px);height:auto;overflow:visible}
+.historia__logo{width:100%;max-width:320px;height:auto}
 .historia__sig{font-family:var(--display);font-style:italic;font-size:.98rem;color:var(--marfil-faint)}
 
 .pillars{display:grid;margin-top:3.6rem;border-top:1px solid var(--hairline)}
@@ -334,7 +330,7 @@ body.no-3d .engrave{display:none}
 .cta{overflow:hidden;background:var(--noir)}
 .cta__glow{position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(45% 55% at 78% 50%,rgba(201,164,92,.15),transparent 66%)}
-.cta__in{position:relative;display:grid;grid-template-columns:1.05fr .95fr;
+.cta__in{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
   gap:clamp(2.5rem,6vw,6rem);align-items:center}
 .cta__list{margin-top:2.2rem;display:grid;gap:.85rem}
 .cta__list li{position:relative;padding-left:1.85rem;font-size:.95rem}
@@ -379,7 +375,7 @@ body.no-3d .engrave{display:none}
 .footer{border-top:1px solid var(--hairline);background:var(--noir-800);padding-top:clamp(3.5rem,6vw,5.5rem)}
 .footer__in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
   gap:2.5rem;padding-bottom:clamp(2.5rem,4vw,3.5rem)}
-.footer__logo{width:min(100%,250px);height:auto;overflow:visible}
+.footer__logo{width:240px;max-width:100%;height:auto}
 
 .redes{display:flex;gap:.85rem}
 .redes a{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
@@ -412,7 +408,7 @@ body.no-3d .engrave{display:none}
   .footer__logo{width:min(64%,230px);margin-inline:auto}
   .footer__bottom{justify-content:center;text-align:center;gap:.6rem}
   .historia__aside{position:static;justify-items:center;text-align:center}
-  .historia__logo{width:min(70%,270px)}
+  .historia__logo{width:min(70%,260px);max-width:260px}
   .header__cta{display:none}
   .burger{display:block}
   .nav{position:fixed;inset:0;z-index:-1;margin:0;flex-direction:column;

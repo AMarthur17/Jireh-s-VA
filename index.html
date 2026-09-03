@@ -6,7 +6,8 @@
 <title>Jireh's VA Jewelry — Joyas personalizadas que cuentan tu historia</title>
 <meta name="description" content="Jireh's VA Jewelry: joyería personalizada hecha a mano. Diseñamos contigo piezas únicas —anillos, dijes, aretes y pulseras grabadas— para tus momentos más especiales.">
 <meta name="theme-color" content="#0B0A09">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Jireh's VA Jewelry — Joyas que cuentan historias">
@@ -18,6 +19,7 @@
      fuera a proposito: una referencia rota da peor vista previa que
      ninguna, y las redes sociales no admiten SVG en este campo. -->
 
+<link rel="preload" href="assets/logo.png" as="image">
 <link rel="preload" href="assets/fonts/bodoni-moda-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jost-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/fonts.css">
@@ -26,47 +28,10 @@
 </head>
 <body>
 
-<!-- ══════════ SPRITE SVG · logo vectorial reconstruido ══════════ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="jvGold" gradientUnits="userSpaceOnUse" x1="180" y1="60" x2="1140" y2="700">
-      <stop offset="0%"   stop-color="#A87F3F"/>
-      <stop offset="14%"  stop-color="#E7CF95"/>
-      <stop offset="28%"  stop-color="#B78F49"/>
-      <stop offset="44%"  stop-color="#F4E2B2"/>
-      <stop offset="58%"  stop-color="#A9813F"/>
-      <stop offset="72%"  stop-color="#EFDAA6"/>
-      <stop offset="86%"  stop-color="#B08744"/>
-      <stop offset="100%" stop-color="#E8D19A"/>
-    </linearGradient>
-    <linearGradient id="jvGoldSoft" gradientUnits="userSpaceOnUse" x1="300" y1="820" x2="900" y2="890">
-      <stop offset="0%"   stop-color="#C9A45C"/>
-      <stop offset="50%"  stop-color="#F4E2B2"/>
-      <stop offset="100%" stop-color="#C09A52"/>
-    </linearGradient>
-
-    <g id="jvMarkPaths" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path class="jv-p" d="M1152 196 C1062 296 956 384 834 434 C726 478 596 506 470 502 C346 498 262 466 256 412 C250 358 322 330 408 340 C526 354 632 408 716 470" stroke="url(#jvGold)" stroke-width="4.5"/>
-      <path class="jv-p" d="M614 452 C642 342 678 206 710 116 C730 56 780 30 802 52 C826 76 800 130 752 174 C706 216 656 282 620 350" stroke="url(#jvGold)" stroke-width="4"/>
-      <path class="jv-p" d="M764 86 C744 214 702 350 648 462 C626 508 606 534 596 528 C586 522 594 490 610 450 C664 316 718 182 744 82 Z" fill="url(#jvGold)" stroke="url(#jvGold)" stroke-width="2"/>
-    </g>
-
-    <symbol id="logo-mark" viewBox="236 26 940 520"><use href="#jvMarkPaths"/></symbol>
-
-    <symbol id="logo-full" viewBox="0 0 1200 920">
-      <use href="#jvMarkPaths"/>
-      <g text-anchor="middle">
-        <text class="jv-word" x="600" y="768" font-size="196" letter-spacing="2" fill="url(#jvGold)">JIREH&rsquo;S VA</text>
-        <text class="jv-sub" x="600" y="878" font-size="62" letter-spacing="29" fill="url(#jvGoldSoft)">JEWELRY</text>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <!-- ══════════ PRELOADER ══════════ -->
 <div class="loader" id="loader">
   <div class="loader__inner">
-    <svg class="loader__logo" viewBox="236 26 940 520" aria-hidden="true"><use href="#logo-mark"/></svg>
+    <img class="loader__logo" src="assets/logo.png" width="538" height="321" alt="" aria-hidden="true">
     <div class="loader__bar"><i></i></div>
     <span class="loader__txt">Puliendo cada detalle&hellip;</span>
   </div>
@@ -82,7 +47,7 @@
 <header class="header" id="header">
   <div class="shell header__in">
     <a class="header__logo" href="#top" aria-label="Jireh's VA Jewelry — inicio">
-      <svg class="header__mark" viewBox="236 26 940 520" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <img class="header__mark" src="assets/logo-mark.png" width="320" height="166" alt="" aria-hidden="true">
       <span class="header__name">Jireh&rsquo;s VA<em>Jewelry</em></span>
     </a>
 
@@ -158,7 +123,7 @@
   <div class="shell historia__in">
     <aside class="historia__aside">
       <p class="tag reveal">Quiénes somos</p>
-      <svg class="historia__logo" viewBox="0 0 1200 920" role="img" aria-label="Jireh's VA Jewelry"><use href="#logo-full"/></svg>
+      <img class="historia__logo" src="assets/logo.png" width="538" height="321" alt="Jireh's VA Jewelry">
       <p class="historia__sig reveal">Joyería de autor &middot; desde el primer boceto</p>
     </aside>
 
@@ -446,7 +411,7 @@
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="footer">
   <div class="shell footer__in">
-    <svg class="footer__logo" viewBox="0 0 1200 920" role="img" aria-label="Jireh's VA Jewelry"><use href="#logo-full"/></svg>
+    <img class="footer__logo" src="assets/logo.png" width="538" height="321" alt="Jireh's VA Jewelry">
 
     <ul class="redes">
       <li><a href="#personaliza" aria-label="Instagram">

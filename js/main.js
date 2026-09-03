@@ -75,24 +75,13 @@ function arrancar() {
     return;
   }
 
-  // el monograma se dibuja trazo a trazo (anime.js)
-  if (anime) {
-    const marca = q("#jvMarkPaths path");
-    anime.set(marca, {
-      strokeDasharray: (el) => el.getTotalLength(),
-      strokeDashoffset: (el) => el.getTotalLength()
-    });
-    anime({
-      targets: marca,
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutSine",
-      duration: 1500,
-      delay: anime.stagger(180)
-    });
-  }
-
   gsap.timeline({ defaults: { ease: "power2.inOut" } })
-    .to(".loader__bar i", { width: "100%", duration: 1.6, ease: "power1.inOut" })
+    // El logotipo es el archivo original de la marca, no un trazado que
+    // podamos dibujar: se descubre con un barrido de izquierda a derecha.
+    .fromTo(".loader__logo",
+      { clipPath: "inset(0 100% 0 0)", opacity: 0.35 },
+      { clipPath: "inset(0 0% 0 0)", opacity: 1, duration: 1.3, ease: "power2.out" }, 0)
+    .to(".loader__bar i", { width: "100%", duration: 1.6, ease: "power1.inOut" }, 0)
     .to(".loader__inner", { opacity: 0, y: -18, duration: 0.5 }, "-=0.15")
     .to(loader, { yPercent: -100, duration: 1, ease: "expo.inOut" }, "-=0.2")
     .set(loader, { display: "none" })

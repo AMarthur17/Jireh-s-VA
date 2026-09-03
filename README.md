@@ -11,7 +11,8 @@ python -m http.server 5173
 index.html   css/style.css   css/fonts.css
 js/scene.js  (Three.js: o anel e a gravação)
 js/main.js   (GSAP + anime.js + motion.dev)
-js/vendor/   assets/fonts/   assets/logo.svg
+js/vendor/   assets/fonts/   assets/piezas/
+assets/logo.png  assets/logo-mark.png  assets/favicon.png
 ```
 
 ---
@@ -36,10 +37,15 @@ ouro (`#7E5F2C` → `#C9A45C` → `#F7EFD8`). Sobre obsidiana **quente** (`#0A09
 porque preto neutro deixa o ouro esverdeado. Apoio de esmeralda profunda
 (`#123B31`), o par histórico da joalheria, só em brilhos e no painel de sucesso.
 
-**Tipografia, também tirada do logotipo.** Duas famílias, nenhuma escolhida por
-hábito: **Bodoni Moda** porque o logo é um didone de alto contraste, e **Jost**
-porque a linha "JEWELRY" é uma geométrica tipo Futura. A UI herda a voz da marca
-em vez de importar uma sans qualquer.
+**Tipografia, imitando a do logotipo.** Duas famílias, nenhuma escolhida por
+hábito: **Bodoni Moda** porque o logotipo é um didone de alto contraste — com o
+eixo óptico forçado ao máximo (`font-variation-settings: "opsz" 96`), que é o que
+afina os traços finos até a delicadeza da marca. E **Jost** porque a linha
+"JEWELRY" é uma geométrica tipo Futura. A interface herda a voz do logotipo em
+vez de importar uma sans qualquer.
+
+A tipografia original do logotipo é licenciada e não acompanha a marca; Bodoni
+Moda é a aproximação mais fiel disponível em fonte aberta.
 
 **Estrutura.** Numeração `01–04` só no "Proceso", onde a ordem carrega informação
 real. Nos pilares e nas coleções ela foi removida: ali seria decoração fingindo
@@ -71,7 +77,7 @@ ser a única coisa que se lembra depois.
 |---|---|
 | **Three.js** | Anel solitário 100% procedural; gema com transmissão e IOR 2.42 (o índice do diamante). Reage ao ponteiro e ao scroll. |
 | **GSAP + ScrollTrigger** | Sequência de carga, revelação por máscara de linha, parallax, marquise. |
-| **anime.js** | Os ícones não aparecem: **se desenham** (`stroke-dashoffset`), o monograma do preloader inclusive. |
+| **anime.js** | Os ícones do processo não aparecem: **se desenham** (`stroke-dashoffset`), como um esboço. |
 | **motion.dev** | Molas reais (`type: "spring"`) nos botões magnéticos, no tilt dos cards e no cursor sobre o que é clicável. |
 
 **Onde o motion.dev não entra:** o seguimento contínuo do cursor tem integrador de
@@ -110,12 +116,22 @@ que a passada revelou:
 
 ## O logotipo
 
-Revetorizado, não filtrado: monograma em três caminhos Bézier, degradê metálico de
-8 paradas, fundo transparente, ~2 KB e nítido em qualquer tamanho. Desenho e
-proporções mantidos — a mudança é de suporte, não de identidade.
+Usa-se o **arquivo original da marca**, sem redesenho: `logo.png`, PNG RGBA com
+fundo realmente transparente (conferido pixel a pixel no canal alfa, não no olho).
 
-Para um arquivo 100% portátil (gráfica, editor sem internet), basta converter os
-dois `<text>` em contornos; o monograma já é caminho puro.
+O que foi feito a partir dele, tudo por recorte — nada é redesenhado:
+
+- `assets/logo.png` — o logotipo completo, aparado das margens vazias, para que
+  escale de forma previsível em vez de flutuar dentro de espaço morto.
+- `assets/logo-mark.png` — só o monograma, para o cabeçalho, onde a versão
+  empilhada ficaria alta demais. O corte foi medido pelas faixas vazias do canal
+  alfa, não a olho.
+- `assets/favicon.png` — o monograma centrado sobre a obsidiana da marca.
+
+Como o logotipo agora é imagem e não traçado, o preloader não pode mais
+"desenhá-lo". Ele passou a ser descoberto por um **barrido de máscara** da
+esquerda para a direita (`clip-path`), que mantém o momento de abertura sem
+alterar um pixel da marca.
 
 ---
 
